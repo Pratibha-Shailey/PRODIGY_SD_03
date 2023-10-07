@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Management</title>
+</head>
+<body>
+    <h1>Contact Management</h1>
+
+    <!-- HTML form to add a new contact -->
+    <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" required><br>
+
+        <button type="button" onclick="addContact()">Add Contact</button>
+    </form>
+
+    <!-- Display contacts -->
+    <h2>Contact List</h2>
+    <ul id="contact-list">
+        <!-- Contacts will be displayed here -->
+    </ul>
+
+    <script>
+        // JavaScript to handle adding contacts
+        function addContact() {
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+
+            const contact = document.createElement("li");
+            contact.innerHTML = `<strong>${name}</strong><br>Phone: ${phone}<br>Email: ${email}`;
+
+            document.getElementById("contact-list").appendChild(contact);
+
+            // Clear the form fields
+            document.getElementById("name").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("email").value = "";
+        }
+    </script>
+</body>
+</html>
